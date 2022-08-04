@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>NOIS | Student's Dashboard</title>
+
+    <!-- CSS -->
+    <link href="../../dist/output.css" rel="stylesheet" />
+    <!-- JS -->
+    <script src="../nois.js"></script>
+  </head>
+
+  <body class="bg-blue-200">
+    <section class="flex flex-col h-screen justify-between">
+      <!-- Nav Bar -->
+      <nav
+        class="md:flex md:justify-between lg:flex lg:justify-between md:px-4 px-2 py-5 fixed top-0 left-0 right-0 bg-gray-900">
+        <!-- back -->
+        <span onclick="goToIndexPage()"
+          class="duration-300 transition-colors flex md:justify-start lg:justify-start justify-center items-center space-x-2 text-white hover:text-orange-600 hover:no-underline hover:cursor-pointer">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+          </svg>
+
+          <p class="text-sm font-bold">Back to Home</p>
+        </span>
+
+        <!-- Logo -->
+        <a href="" class="space-x-2 flex justify-center items-center mt-4 md:mt-0" title="NOIS | Student's Dashboard">
+          <div class="flex text-orange-600 font-bold hover:text-white hover:underline items-center space-x-2">
+            <svg class="fill-current w-10 h-10" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M22.856 6.912c-1.36 5.26-6.115 9.959-12.541 12.443.977 1.273 4.071 3.382 5.837 3.892 4.578-1.691 7.848-6.081 7.848-11.247 0-1.821-.418-3.542-1.144-5.088m-15.224 6.699c.119 1.538.613 2.921 1.355 4.094 6.817-2.445 11.584-7.587 12.474-13.067-.824-1.058-1.818-1.975-2.946-2.706-1.437 6.91-7.647 10.345-10.883 11.679m-2.045-1.045c-1.216-1.41-2.604-2.484-5.347-2.96-.157.774-.24 1.574-.24 2.394 0 6.628 5.372 12 12 12 .496 0 .981-.039 1.461-.097-3.253-1.323-8.032-5.669-7.874-11.337m1.78-1.022c1.209-.534 2.74-1.34 4.222-2.485-2.185-2.84-5.239-4.997-8.252-5.349-1.085 1.133-1.946 2.478-2.522 3.968 3.384.647 5.127 2.152 6.552 3.866m-2.356-9.285c1.969-1.416 4.378-2.259 6.989-2.259 1.647 0 3.216.333 4.645.934-.45 2.861-1.835 5.102-3.537 6.793-2.105-2.675-5.203-4.78-8.097-5.468" />
+            </svg>
+
+            <p class="">NOIS STUDENT ACCOUNT</p>
+          </div>
+        </a>
+
+        <!-- Actions -->
+        <div class="space-x-4 flex justify-center items-center mt-4 md:mt-0">
+          <!-- Add Item -->
+          <a href="add_complaint.html"
+            class="flex items-center rounded-md text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm hover:text-gray-900 hover:bg-white hover:no-underline normal-case px-5 bg-orange-600 transition-colors duration-300">
+            <svg width="20" height="20" fill="currentColor" class="mr-2" aria-hidden="true">
+              <path
+                d="M10 5a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 1-1Z" />
+            </svg>
+            Add a Complaint
+          </a>
+
+          <a href="../logout/student_logout.php"
+            class="text-orange-600 hover:text-white hover:bg-red-700 rounded-md font-semibold normal-case px-5 py-2 text-sm bg-transparent transition-all duration-300">
+            <span>Log Out</span>
+          </a>
+
+          <!-- User Icon -->
+          <div>
+            <button type="button"
+              class="max-w-xs bg-gray-900 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
+              id="user-menu-button" aria-expanded="false" aria-haspopup="true" onclick="goToProfile()">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full"
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="" />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main -->
+      <main class="md:mt-20 lg:mt-20 mt-40 p-4 space-y-4 w-full mx-auto">
+
+        <!-- results -->
+        <div class="mb-10">
+          <h2
+            class="text-3xl text-gray-900 tracking-tight mt-4 mb-10 text-center font-extrabold sm:text-4xl md:text-5xl mx-auto">
+            My
+            <span class="text-orange-600 underline xl:inline">Nois</span>
+            Results
+          </h2>
+          <div class="flex flex-col ">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-900 text-gray-900">
+
+                    <!-- Heads -->
+                    <thead class="bg-gray-900">
+                      <tr>
+                        <th scope="col"
+                          class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                          ID
+                        </th>
+                        <th scope="col"
+                          class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                          Course
+                        </th>
+                        <th scope="col"
+                          class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                          Mark
+                        </th>
+
+                      </tr>
+                    </thead>
+
+                    <!-- Table Body -->
+                    <tbody class="bg-gray-100 divide-y divide-gray-200">
+                      <!-- 1 -->
+                      <tr>
+                        <td class="px-6 py-4">
+                          <p class="text-sm font-medium text-left text-gray-900">
+                            1.
+                          </p>
+                        </td>
+                        <td class="px-6 py-4">
+                          <p class="text-xs text-gray-900 tracking-wider">
+                            N200070RCMS
+                          </p>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                          80
+                        </td>
+
+                      </tr>
+                    </tbody>
+
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+<div >Sucess</div>
+
+        <h2
+          class="text-3xl text-gray-900 tracking-tight mt-4 mb-10 text-center font-extrabold sm:text-4xl md:text-5xl mx-auto">
+          My
+          <span class="text-orange-600 underline xl:inline">Nois</span>
+          Complaints (Cases)
+        </h2>
+
+        <!-- Table -->
+        <div class="flex flex-col">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-900 text-gray-900">
+                  <!-- Heads -->
+                  <thead class="bg-gray-900">
+                    <tr>
+                      <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                        CASE
+                      </th>
+                      <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                        CASE Tracking Number
+                      </th>
+                      <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                        Status
+                      </th>
+                      <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider">
+                        Course
+                      </th>
+
+                    </tr>
+                  </thead>
+
+                  <!-- Table Body -->
+                  <tbody class="bg-gray-100 divide-y divide-gray-200">
+                    <!-- 1 -->
+                    <tr>
+                      <td class="px-6 py-4">
+                        <p class="text-sm font-medium text-left text-gray-900">
+                          1.
+                        </p>
+                      </td>
+                      <td class="px-6 py-4">
+                        <p class="text-xs text-gray-900 tracking-wider">
+                          N200070RCMS
+                        </p>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-900">
+                          Submitted
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        MTH2203
+                      </td>
+
+                    </tr>
+                    <!-- 2 -->
+                    <tr>
+                      <td class="px-6 py-4">
+                        <p class="text-sm font-medium text-left text-gray-900">
+                          2.
+                        </p>
+                      </td>
+                      <td class="px-6 py-4">
+                        <p class="text-xs text-gray-900 tracking-wider">
+                          N187945RCMS
+                        </p>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-900">
+                          Accepted
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        BIS1204
+                      </td>
+                    </tr>
+                    <!-- 3 -->
+                    <tr>
+                      <td class="px-6 py-4">
+                        <p class="text-sm font-medium text-left text-gray-900">
+                          3.
+                        </p>
+                      </td>
+                      <td class="px-6 py-4">
+                        <p class="text-xs text-gray-900 tracking-wider">
+                          N200070RCMS
+                        </p>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-900">
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        BIS1206
+                      </td>
+                    </tr>
+                    <!-- 4 -->
+                    <tr>
+                      <td class="px-6 py-4">
+                        <p class="text-sm font-medium text-left text-gray-900">
+                          4.
+                        </p>
+                      </td>
+                      <td class="px-6 py-4">
+                        <p class="text-xs text-gray-900 tracking-wider">
+                          N200070RCMS
+                        </p>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-teal-100 text-teal-900">
+                          Result Uploaded
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        BIT1206
+                      </td>
+                    </tr>
+                    <!-- 5 -->
+                    <tr>
+                      <td class="px-6 py-4">
+                        <p class="text-sm font-medium text-left text-gray-900">
+                          5.
+                        </p>
+                      </td>
+                      <td class="px-6 py-4">
+                        <p class="text-xs text-gray-900 tracking-wider">
+                          N200070RCMS
+                        </p>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-900">
+                          Resolved
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        BSE1200
+                      </td>
+                    </tr>
+                    <!-- 6 -->
+                    <tr>
+                      <td class="px-6 py-4">
+                        <p class="text-sm font-medium text-left text-gray-900">
+                          6.
+                        </p>
+                      </td>
+                      <td class="px-6 py-4">
+                        <p class="text-xs text-gray-900 tracking-wider">
+                          N200070RCMS
+                        </p>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-900">
+                          REJECTED
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        BSE1201
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </main>
+
+      <!-- Footer -->
+      <footer
+        class="mt-10 w-full bg-gray-900 max-w-container mx-auto py-4 text-center space-y-2 items-center justify-center text-sm text-blue-200">
+        <p class="text-orange-600 font-bold">
+          &copy; 2021 Nois - Results Complaints Management System
+        </p>
+
+        <div class="flex items-center justify-center text-center mt-2">
+          <p class="mr-3 border-r border-blue-300 pr-3">
+            Mugisa Brian - 20/U/7823/PS - 2000707823
+          </p>
+          <p class="mr-3 border-r border-blue-300 pr-3">
+            Ankunda Andante Rutainama - 20/U/2015/EVE - 2000702015
+          </p>
+          <p>Niwahereza Simon Desire - 20/U/7803/PS - 2000707803</p>
+        </div>
+
+        <p class="text-orange-600 font-bold">All rights reserved.</p>
+      </footer>
+    </section>
+  </body>
+
+</html>
